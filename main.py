@@ -2,15 +2,23 @@ from graph import DirectedGraph, UndirectedGraph
 
 
 def main() -> None:
-    undirected = UndirectedGraph()
-    undirected.load_from_file("sample.txt")
-    print("Undirected Graph loaded from file:")
-    print(undirected)
+    forest = UndirectedGraph()
+    forest.add_edge("A", "B", 1)
+    forest.add_edge("C", "D", 1)
+    print("Undirected Disconnected Forest (A-B and C-D):")
+    forest.is_connected()
+    forest.has_cycles()
+    forest.is_tree()
+    forest.is_forest()
 
-    directed = DirectedGraph()
-    directed.load_from_file("sample.txt")
-    print("\nDirected Graph loaded from file:")
-    print(directed)
+    directed_forest = DirectedGraph()
+    directed_forest.add_edge("A", "B", 1)
+    directed_forest.add_edge("C", "D", 1)
+    print("\nDirected Disconnected Forest (A->B and C->D):")
+    directed_forest.is_connected()
+    directed_forest.has_cycles()
+    directed_forest.is_tree()
+    directed_forest.is_forest()
 
 
 if __name__ == "__main__":
